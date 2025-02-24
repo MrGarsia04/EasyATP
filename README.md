@@ -1,27 +1,68 @@
-# EasyATP - Codespace Setup
+# EasyATP
 
-Este repositorio está configurado para crear un **Codespace** en GitHub que permita utilizar la herramienta **EasyATP**.
+## Urratsak:
 
-## ¿Qué es EasyATP?
+1. Saio berri bat ireki zure [https://github.com/](https://github.com/) kontuan, edo sortu kontu berri bat. 
 
-**EasyATP** es una herramienta para realizar análisis de vulnerabilidades, configuraciones o tareas relacionadas con la seguridad informática. Este repositorio tiene como objetivo proporcionar un entorno de desarrollo listo para usar en GitHub Codespaces.
+2. Erabili zure edozein biltegi (repository), edo sortu biltegi berri bat.
 
-## Requisitos
+    ![2a. Create a new repository](/images/CreateNewCodespace.png "2a. Create a new repository")
+    
+    ![2b. Set new repository name](/images/CreateNewRepositorySetName.png "2b. Set new repository name")
+    
+    ![2c. Save new repository](/images/CreateNewRepositorySaveButton.png "2c. Save new repository")
 
-Para poder utilizar este Codespace, necesitarás una cuenta de GitHub y acceso al repositorio. El Codespace se configura automáticamente al crear el entorno de desarrollo.
+3. Sortu codespace berri bat. Zure biltegia hutsa bada (berria), JavierAlvez/EasyATP biltegia (honako hau) klonatu ahal duzu:
 
-## ¿Cómo usar este repositorio?
+    ![3a. Create a new codespace](/images/CreateNewCodespace.png "3a. Create a new codespace")
+    
+    ![3b. Select a non-empty repository](/images/CreateNewCodespaceSelectRepository.png "3b. Select a non-empty repository")
+    
+    ![3c. Save new repository](/images/CreateNewCodespaceCreateButton.png "3c. Save new repository")
 
-1. **Crea un Codespace**: 
-   - Abre este repositorio en GitHub y haz clic en el botón **"Code"**, luego selecciona **"Open with Codespaces"**.
-   - Si no has utilizado Codespaces antes, GitHub te guiará para crear uno.
+4. Terminal lehioan hurrengo komandoa exekutatu:
 
-2. **Instala las dependencias (si es necesario)**:
-   - Dependiendo de la configuración de EasyATP, podrías necesitar instalar ciertas dependencias. Revisa la documentación de EasyATP para más detalles.
+    ```shell
+    docker run --name easyatp -p 3000:3000 -d javieralvez/easyatp:2024
+    ```
+
+    ![4. Execute Docker Run Command](/images/DockerRunCommand.png "4. Execute Docker Run Command")
+
+5. Ireki EasyATP fitxa berri batean "Open in Browser" botoia sakatuz:
+
+    ![5. Open in browser](/images/DockerRunCommand.png "5. Open in browser")
+
+6. EasyATP tresnarekin lan egin:
+
+    ![6. Ready to work](/images/DockerRunCommand.png "6. Ready to work")
+
+7. Bukatzeko, lan egin eta gero, gelditu codespace. Azken hau oso garrantzitsua da, hilabetero 2000 minutu bakarrik dituzuelako [GitHub](https://github.com/)-en (dohainik, jakina). Geldituko ez bazenute, pare bat egunetan agortuko zenituzke. Zure codespace gelditzeko, Codespace atalean zure codespace-eko aukerak zabaldu eta "Stop codespace" hautatu:
+
+    ![7a. Go to Codespaces](/images/GoToCodespaces.png "7a. Go to Codespaces")
    
-3. **Ejecuta EasyATP**: 
-   - Una vez en el Codespace, puedes comenzar a usar EasyATP directamente desde el terminal o editor integrado de Codespaces.
-   
-   ```bash
-   # Ejemplo de comando para ejecutar EasyATP
-   python easyATP.py
+    ![7b. Stop codespace](/images/StopCodespace.png "7b. Stop codespace")
+
+8. Zure codespace berriro erabiltzeko, Codespace atalean zure codespace-eko izenean klikatu eta automatikoki martxan jarriko da. Lehen bezala, terminal leihoan hurrengo komando exekutatu:
+
+    ```bash
+    docker run --name easyatp -p 3000:3000 -d javieralvez/easyatp:2024
+    ```
+
+    ![8a. Start codespace](/images/StartCodespace.png "8a. Start codespace")
+
+    ![8b. Re-exekute Docker Run Command](/images/DockerRunCommandAgain.png "8b. Re-exekute Docker Run Command")
+
+9. Errore bat agertzen bazaizu, saia zaitez biltegia ezabatzen hurrengo komandoa erabiliz:
+
+    ```bash
+    docker container rm "biltegi-gakoa"
+    ```
+
+    non "biltegi-gakoa" errore-mezuan agertzen zaizu. Ondoren, "run" komandoa berriro exekutatu eta martxan jarriko da EasyATP:
+
+    ![9a. Delete Docker Container](/images/DeleteDockerContainer.png "9a. Delete Docker Container")
+
+    ![9b. Re-exekute Docker Run Command Again](/images/DockerRunCommandOnceAgain.png "9b. Re-exekute Docker Run Command Again")
+
+
+
